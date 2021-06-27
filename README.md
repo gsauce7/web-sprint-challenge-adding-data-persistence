@@ -36,13 +36,14 @@ In this project you will be given a set of requirements and must design a databa
 ### Required Dependencies
 
 The project needs some additional NPM dependencies in order to work.
+[X]knex, sqlite3, express
 
 ### Required Scripts
 [X]
 Add `"start"`. `"server"`, `"migrate"` and `"rollback"` scripts to the `package.json` file.
 
 ### Required Tables
-
+[X] *** Created visual data model of the database with its tables and relationships datamodel.pdf***
 Build the migration(s) in Knex inside the `data/migrations` folder using appropriate data types and constraints. **You must use the table names and the column names described below.** To give a primary key a name different than `id`, do `table.increments("project_id")` instead of `table.increments()`.
 
 - [ ] A **project** is what needs to be done and is stored in a `projects` table with the following columns:
@@ -118,6 +119,13 @@ Build an API inside the `api` folder with endpoints for:
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain the difference between Relational Databases and SQL.
+ANSWER: A relation database has one or many tables and stores data and creates a relationship between data points. SQL is the language which we use to Create, Read, Update and Delete that data, and bring back custom queries and use our data in other ways so it can be consumed by the front end.
+
 2. Why do tables need a Primary Key?
+ANSWER: A primary key uniquely identifies every record (row).
+
 3. What is the name given to a table column that references the Primary Key on another table?
+ANSWER: We give it a name something like "otherTable_id" and it's called a foreign key.
+
 4. What do we need in order to have a _many to many_ relationship between two tables?
+ANSWER: We need an intermediary, a JUNCTION TABLE, with mappings in that table. (Instructor Dave Kidd called this an "assignment table" or "appointment" table.)
