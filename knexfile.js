@@ -1,4 +1,4 @@
-// do not make changes to this file
+// do not make changes to this file (actually I changed testing per Zac Smith)
 const sharedConfig = {
   client: 'sqlite3',
   useNullAsDefault: true,
