@@ -1,5 +1,5 @@
 // No need to change this file
-// per Molly Brown with TA Zac Smith, testing needs to be here but I see it already knexfile
+// per Molly Brown with TA Zac Smith, something may need to be changed in knexfile to match here
 const knex = require('knex');
 const configurations = require('../knexfile.js');
 const environment = process.env.NODE_ENV || 'development';
