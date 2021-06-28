@@ -1,4 +1,4 @@
-// do not make changes to this file
+// do not make changes to this file (actually I changed testing per Zac Smith)
 const sharedConfig = {
   client: 'sqlite3',
   useNullAsDefault: true,
@@ -9,12 +9,13 @@ const sharedConfig = {
 module.exports = {
   development: {
     ...sharedConfig,
-    connection: { filename: './data/lambda.db3' },
+    connection: { filename: './data/projects.db3' },
     seeds: { directory: './data/seeds' },
   },
   testing: {
     ...sharedConfig,
-    connection: { filename: './data/test.db3' },
+    connection: { filename: './data/projects.db3' },
+    seeds: { directory: './data/seeds' },
   },
 };
 
