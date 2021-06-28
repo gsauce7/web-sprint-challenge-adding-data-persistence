@@ -27,6 +27,8 @@ exports.up = function (knex) {
                 .notNullable()
                 .defaultTo(0);
             tbl.integer('project_id')
+                .unsigned()
+                .notNullable()
                 .references('project_id')
                 .inTable('projects')
                 .onUpdate('CASCADE')

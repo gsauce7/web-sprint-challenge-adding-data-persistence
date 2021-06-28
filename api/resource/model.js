@@ -1,23 +1,34 @@
 // build your `Resource` model here
-const db = require("../../data/dbConfig.js")
+const db = require("../../data/dbConfig")
+
 
 function getAllResources() {
+    return db("resources")
+        .orderBy("resource_name", "desc")
+}
 
-    const allResources = db("resources")
-    return allResources;
-};
-
-function add(resource) {
-
-
-    return db('resources').insert(resource)
-        .then(([resource_id]) => {
-            return db('resources').where('resource_id', resource_id).first()
+function findById(id) {
+    return db("resources")
+        .where("resource_id", id)
+        .then(data => {
+            return data[0]
         })
 }
+
+
+function add(resource) {
+    return db("resources")
+        .insert(resource)
+        .then(ids => {
+            return findById(ids[0])
+        })
+}
+
+
 
 module.exports = {
 
     getAllResources,
+    findById,
     add
 }

@@ -5,21 +5,24 @@ const Project = require('./model')
 
 
 // [GET] /api/projects
-router.get('/', (req, res, next) => {
+router.get("/", (req, res, next) => {
     Project.getAllProjects()
-        .then(projects => {
-            res.json(projects)
+        .then(data => {
+            data.map(project => {
+                project.project_completed ? project.project_completed = true : project.project_completed = false
+                return project
+            })
+            res.status(200).json(data);
         })
         .catch(next)
 })
 
-// [POST] /api/projects
-router.post('/', (req, res, next) => {
-    const newProject = req.body
 
-    Project.add(newProject)
-        .then(result => {
-            res.status(201).json(newProject)
+router.post("/", (req, res, next) => {
+    Project.add(req.body)
+        .then(project => {
+            project.project_completed ? project.project_completed = true : project.project_completed = false
+            res.status(201).json(project);
         })
         .catch(next)
 })
